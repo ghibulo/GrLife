@@ -1,0 +1,6 @@
+== GrLife - pokusy s Groovy
+
+vygeneruje html stránku plnou tabulek na kterých lze studovat postupnou zmìnu množení bunìk ve známé høe Life.
+
+image::screenshot.jpg[Ukázka]
+
