@@ -1,8 +1,14 @@
+/*
+ * Board is representing a matrix of LifeGame
+ */
+
 
 class Board {
+	
 	int nRows, nCols;
 	List< List<Place> > board;
 
+	// constructor - creating an empty matrix
 	Board(int aRows, int aCols) {
 		nRows = aRows;
 		nCols = aCols;
@@ -16,11 +22,14 @@ class Board {
 		}
 	}
 
+	// what is too down, must be up
+	// what is too right, must be left
 	private int roundToBoard(int x, int max) {
 		x = x%max
 		x>=0?x:x+max
 	}
 
+	// how many neigbours are around place [r,c]
 	private int getNumNeighbours(int r, int c) {
 		int s=0
 		r=roundToBoard(r,nRows)
@@ -36,6 +45,7 @@ class Board {
 		return s
 	}
 
+	// create another generation of the whole matrix
 	void round() {
 			for (int i=0;i<nRows;i++) {
 				for (int j=0;j<nCols;j++) {
@@ -57,6 +67,8 @@ class Board {
 			}
 	}
 
+	//for setting a specified place
+	//default -> living cell at the present time
 	void setPosition(int r, int c, Boolean life = true, Boolean now = true) {
 		if (now) {
 			board[r][c].occupied = life
@@ -65,6 +77,7 @@ class Board {
 		}
 	}
 
+	//quick presentation for debug
 	void printBoard () {
 			//println(board)
 			for (i in 0..(nRows-1)) {
